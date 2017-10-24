@@ -54,7 +54,16 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.13</version>
 				<configuration>
-					<skipDockerBuild>true</skipDockerBuild>
+					<imageName>example</imageName>
+					<dockerDirectory>${project.basedir}/docker</dockerDirectory>
+					<skipDocker>true</skipDocker>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
 				</configuration>
 			</plugin>
 		</plugins>
